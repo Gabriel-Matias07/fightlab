@@ -14,7 +14,7 @@
 
 ## Como rodar o projeto localmente
 1. Clone o repositório:
-   git clone https://github.com/seu-usuario/fightlab.git
+   git clone https://github.com/Gabriel-Matias07/fightlab.git
 
 2. Acesse o diretório do projeto:
    cd fightlab
@@ -29,7 +29,7 @@
    http://localhost:3000
 
 ## API
-A API utilizada fornece dados de lutadores de boxe. (Substitua este trecho com o link e documentação da API usada, por exemplo: https://boxerapi.com).
+A API utilizada fornece dados de lutadores de boxe. (https://www.thesportsdb.com).
 
 ## Colaboradores
 - Gabriel (https://github.com/seu-usuario)
