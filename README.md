@@ -33,8 +33,9 @@ A API utilizada fornece dados de lutadores de boxe. (Substitua este trecho com o
 
 ## Colaboradores
 - Gabriel (https://github.com/seu-usuario)
-- Nome do colega 1 (https://github.com/colega1)
-- Nome do colega 2 (https://github.com/colega2)
+- Rayana Lima (https://github.com/Rayanagmss)
+- Moisés Iatagan (https://github.com/miyatakuun)
+- Victor Anderson (https://github.com/VictorNicolau-coder)
 
 ## Licença
 Este projeto é de uso acadêmico e não possui fins lucrativos. Para fins comerciais, entre em contato com os autores.
