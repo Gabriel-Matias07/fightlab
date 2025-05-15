@@ -32,10 +32,7 @@
 A API utilizada fornece dados de lutadores de boxe. (https://www.thesportsdb.com).
 
 ## Colaboradores
-- Gabriel (https://github.com/Gabriel-Matias07)
-- Rayana Lima (https://github.com/Rayanagmss)
-- Moisés Iatagan (https://github.com/miyatakuun)
-- Victor Anderson (https://github.com/VictorNicolau-coder)
+<table> <tr> <td align="center"> <img src="https://avatars.githubusercontent.com/u/124216130?v=4" width="100px;" alt="Gabriel"/> <br /> <strong><a href="https://github.com/Gabriel-Matias07">Gabriel</a></strong> </td> <td align="center"> <img src="https://avatars.githubusercontent.com/u/173968372?v=4" width="100px;" alt="Rayana Lima"/> <br /> <strong><a href="https://github.com/Rayanagmss">Rayana Lima</a></strong> </td> <td align="center"> <img src="https://avatars.githubusercontent.com/u/99146426?v=4" width="100px;" alt="Moisés Iatagan"/> <br /> <strong><a href="https://github.com/miyatakuun">Moisés Iatagan</a></strong> </td> <td align="center"> <img src="https://avatars.githubusercontent.com/u/124687497?v=4" width="100px;" alt="Victor Anderson"/> <br /> <strong><a href="https://github.com/VictorNicolau-coder">Victor Anderson</a></strong> </td> </tr> </table>
 
 ## Licença
 Este projeto é de uso acadêmico e não possui fins lucrativos. Para fins comerciais, entre em contato com os autores.
