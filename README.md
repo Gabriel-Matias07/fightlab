@@ -32,7 +32,7 @@
 A API utilizada fornece dados de lutadores de boxe. (https://www.thesportsdb.com).
 
 ## Colaboradores
-- Gabriel (https://github.com/seu-usuario)
+- Gabriel (https://github.com/Gabriel-Matias07)
 - Rayana Lima (https://github.com/Rayanagmss)
 - Moisés Iatagan (https://github.com/miyatakuun)
 - Victor Anderson (https://github.com/VictorNicolau-coder)
