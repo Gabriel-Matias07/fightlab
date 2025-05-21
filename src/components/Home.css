@@ -1,0 +1,25 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    background-image: url(../assets/image/backgroundHome.jpg);
+    background-size: cover;
+}
+
+.home-container {
+    text-align: center;
+}
+
+.upperCase{
+    text-transform: uppercase;
+}
+
+.nav{
+    text-align: left;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
