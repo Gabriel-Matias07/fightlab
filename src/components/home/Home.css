@@ -15,6 +15,10 @@ body{
     margin-top: -7rem;
 }
 
+.nav-wrapper img{
+    width: 70px;
+}
+
 .home-container {
     display: flex;
     flex-direction: column;
