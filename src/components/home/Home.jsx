@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import './Home.css';
+import Pesquisa from './Pesquisa';
 
 function Home() {
+  const [modalAberto, setModalAberto] = useState(false);
+  const abrirModal = () => setModalAberto(true);
+  const fecharModal = () => setModalAberto(false);
+
   return (
     <div className="home-container">
 
@@ -13,9 +19,11 @@ function Home() {
       </section>
 
         <span className='span-btn'>
-          <button className="btn">Pesquisar Atletas</button>
+          <button onClick={abrirModal} className="btn">Pesquisar Atletas</button>
           <button className="btn">Sobre Nós</button>
         </span>
+
+         {modalAberto && <Pesquisa onClose={fecharModal} />}
     </div>
 
   );
