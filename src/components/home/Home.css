@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body{
     display: flex;
     justify-content: center;
-    background-image: url(../assets/image/backgroundHome.jpg);
+    background-image: url(/src/assets/image/backgroundHome.jpg);
     background-size: cover;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .home-container {
@@ -14,7 +16,7 @@ body{
     text-transform: uppercase;
 }
 
-.nav{
+.span{
     text-align: left;
 }
 
@@ -22,4 +24,6 @@ body{
   margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
+  background-color: #fff;
+  color: #000;
 }
