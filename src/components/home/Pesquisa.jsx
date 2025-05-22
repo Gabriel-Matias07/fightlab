@@ -8,12 +8,16 @@ function Pesquisa({ onClose }) {
               <h2>Digite o nome do atleta</h2>
               <hr className='hr' />
           </header>
-
+          
       <section className='inputs'>
-            <input type="text" placeholder="PROCURAR" />
-            <br />
-            <button onClick={onClose}>Fechar</button>
+            <span className='span-input'>
+                <input type="text" placeholder="PROCURAR" />
+            </span>
       </section>
+      <footer className='footer'>
+        <button onClick={onClose}>Buscar</button>
+        <button onClick={onClose}>Fechar</button>
+        </footer>
     </div>
   );
 }
