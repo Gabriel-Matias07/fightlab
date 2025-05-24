@@ -1,12 +1,12 @@
 # FightLab
 
-**FightLab** é um site desenvolvido como projeto acadêmico com o objetivo de facilitar a pesquisa de informações sobre atletas de boxe. Através do nome do lutador, o sistema consome uma API externa para retornar dados relevantes, como nacionalidade, categoria de peso, histórico de lutas, entre outros.
+**FightLab** é um site desenvolvido como projeto acadêmico com o objetivo de facilitar a pesquisa de informações sobre atletas de MMA (Mixed Martial Arts). Através do nome do lutador, o sistema consome uma API externa para retornar dados relevantes, como nacionalidade, categoria de peso, idade, imagem, entre outros.
 
 ## Funcionalidades
 
-- Pesquisa por nome do atleta de boxe  
+- Pesquisa por nome do atleta de MMA  
 - Exibição de informações detalhadas do lutador  
-- Interface responsiva e intuitiva  
+- Interface intuitiva  
 - Integração com API externa para dados em tempo real  
 
 ## Tecnologias Utilizadas
@@ -49,8 +49,25 @@
 
 ## API
 
-A API utilizada fornece dados de lutadores de boxe:  
-[https://www.thesportsdb.com](https://www.thesportsdb.com)  
+A API utilizada fornece dados de lutadores de MMA:  
+[https://api-sports.io/documentation/mma/v1](https://api-sports.io/documentation/mma/v1)  
+
+### Requisição
+
+As requisições devem ser feitas com método `GET`, utilizando os seguintes headers:
+
+```http
+X-RapidAPI-Key: SUA_CHAVE_AQUI
+X-RapidAPI-Host: v1.mma.api-sports.io
+```
+
+**Exemplo de endpoint para busca de atletas:**
+
+```
+https://v1.mma.api-sports.io/v1/fighters?search=nome_do_lutador
+```
+
+> **Nota:** A chave de autenticação pode ser obtida ao se cadastrar no site da [API-SPORTS](https://api-sports.io/).
 
 ## Colaboradores
 
