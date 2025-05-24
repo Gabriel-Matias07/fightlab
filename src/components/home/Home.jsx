@@ -1,17 +1,16 @@
-// src/components/home/Home.jsx
-import { useState } from 'react'
-import Pesquisa from './Pesquisa'
-import './Home.css'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import Pesquisa from './Pesquisa';
+import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const [modalAberto, setModalAberto] = useState(false)
-  const navigate = useNavigate()
+  const [modalAberto, setModalAberto] = useState(false);
+  const navigate = useNavigate();
 
   const handleBusca = (nomeAtleta) => {
-    setModalAberto(false)
-    navigate(`/resultado?nome=${nomeAtleta}`)
-  }
+    setModalAberto(false);
+    navigate(`/resultado?nome=${nomeAtleta}`);
+  };
 
   return (
     <div className="home-container">
@@ -21,10 +20,11 @@ const Home = () => {
       <div className="span-btn">
         <button className="btn" onClick={() => setModalAberto(true)}>Pesquisar Atletas</button>
         <button className="btn" onClick={() => window.location.href = 'https://github.com/Gabriel-Matias07/fightlab'}>Sobre Nós</button>
+        <button className="btn" onClick={() => navigate('/favoritos')}>Ver Favoritos</button>
       </div>
       {modalAberto && <Pesquisa onBuscar={handleBusca} onFechar={() => setModalAberto(false)} />}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
