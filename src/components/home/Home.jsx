@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Home.css';
 import Pesquisa from './Pesquisa';
-import ResultadoBusca from './ResultadoBusca'; // Card basico de exibição
+/* import ResultadoBusca from './ResultadoBusca'; // Card basico de exibição */
 
 function Home() {
   const [modalAberto, setModalAberto] = useState(false);
