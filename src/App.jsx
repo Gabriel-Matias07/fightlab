@@ -1,12 +1,17 @@
-import { useState } from 'react';
-import Home from './components/home/Home';
-import CardAtleta from './components/cardAtleta/CardAtleta';
+// src/App.jsx
+import { Routes, Route } from 'react-router-dom'
+import Home from "./components/home/Home"
+import ResultadoBusca from "./components/resultadoBusca/ResultadoBusca"
+// import CardAtleta from "./components/CardAtleta" // ainda será feito
 
-export default function App(){
-  return(
-    <div>
-      {/* <Home /> */}
-      <CardAtleta />
-    </div>
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/resultado" element={<ResultadoBusca />} />
+      {/* <Route path="/atleta/:id" element={<CardAtleta />} /> */}
+    </Routes>
   )
 }
+
+export default App

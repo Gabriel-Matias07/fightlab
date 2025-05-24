@@ -1,36 +1,36 @@
-import './Pesquisa.css';
+// src/components/home/Pesquisa.jsx
+import './Pesquisa.css'
+import { useState } from 'react'
 
-function Pesquisa({ onClose }) {
+const Pesquisa = ({ onBuscar, onFechar }) => {
+  const [input, setInput] = useState('')
+
+  const handleClick = () => {
+    if (input.trim() !== '') {
+      onBuscar(input.trim())
+    }
+  }
+
   return (
     <div className="modal">
-
-         <header className='header'>
-              <h2>Digite o nome do atleta</h2>
-              <hr className='hr' />
-          </header>
-          
-      <section className='inputs'>
-            <span className='span-input'>
-                <input type="text" placeholder="PROCURAR" />
-            </span>
-      </section>
-      <footer className='footer'>
-        <button onClick={onClose}>Buscar</button>
-        <button onClick={onClose}>Fechar</button>
-        </footer>
+      <div className="header">
+        <h2>Pesquisar Atletas</h2>
+        <hr className="hr" />
+      </div>
+      <div className="inputs">
+        <input
+          type="text"
+          placeholder="Digite o nome"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+      </div>
+      <div className="footer">
+        <button onClick={handleClick}>Buscar</button>
+        <button onClick={onFechar}>Cancelar</button>
+      </div>
     </div>
-  );
+  )
 }
 
-const modalStyle = {
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#fff',
-  padding: '20px',
-  boxShadow: '0 0 10px rgba(0,0,0,0.3)',
-  zIndex: 1000
-};
-
-export default Pesquisa;
+export default Pesquisa
