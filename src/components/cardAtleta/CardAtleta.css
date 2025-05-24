@@ -1,37 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* importante para facilitar o controle de tamanhos */
 }
 
 body {
     margin: 0;
     background-color: #111;
-    font-family: "Bebas Neue", sans-serif;
     color: white;
 }
 
-.container{
-    height: 100vh;
+.container {
     width: 100vw;
-
-    background-color: cadetblue;
     margin: 0 auto;
+    padding: 0;
 }
 
 header,
-main
-{
+main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-header{
-    height: 15%;
-    background-color: black;
+header {
+    height: 10vh;
 }
 
 header .logo {
@@ -40,36 +36,105 @@ header .logo {
     font-weight: bold;
 }
 
-main{
-    height: 20%;
-    background-color: blueviolet;
+/* MAIN */
+main {
+    height: 90vh;
+    width: 100%;
 }
 
-.imgLutador,
-.infoLutador{
-    height: 100%;
-    margin: 30px;
-}
-
-.imgLutador{
-    width: 30%;
+.infoIniciais{
+    height: 30%;
+    width: 90%;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    gap: 30px;
+}
+
+/* Divisão da imagem e info */
+.imgLutador,
+.nomeLutador, 
+.favButton{
+    height: 100%;
+}
+
+/* Imagem */
+.imgLutador {
+    background-size: cover;
+    background-position: center;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Info */
+.nomeLutador {
+    font-size: 1.4rem;
+    width: 60%;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.imgLutador img{
-    height: 100%;
+.nomeLutador{
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.favButton{
+    width: 10%;
+    float: right;
+}
+
+.favButton img{
+    cursor: pointer;
+
+    height: 40%;
     width: auto;
 }
 
-.infoLutador{
-    width: 70%;
-    background-color: aquamarine;
+.infoPrincipais{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+
+    width: 90%;
+    height: 45%;
+
+    display: flex;
+    flex-wrap: wrap; /* permite quebrar linha */
+    align-items: center;
+    gap: 30px; /* espaçamento entre os cards (opcional) */
 }
 
-.infoLutador h1{
-    border-left: 1px solid red;
+.infoPrincipal{
+    background-color: #1C1C1C;
+
+    height: auto;
+    flex: 1 0 calc(33.333% - 30px);
+
+    max-width: calc(33.333% - 30px);
+
+    padding: 20px;
+    border-left: 2px solid red;
+}
+
+.equipe{
+    width: 90%;
+    height: 25%;
+}
+
+.cardEquipe{
+    padding: 30px;
+    height: 80%;
+
+    background-color: #1C1C1C;
+    border-left: 2px solid red;
+}
+
+.cardEquipe h1{
+    color: red;
 }
