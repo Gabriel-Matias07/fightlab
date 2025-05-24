@@ -7,16 +7,14 @@
 body{
     display: flex;
     justify-content: center;
-    
     font-family: "Bebas Neue", sans-serif;
-   
 }
 
 .header-logo{
     margin-top: -7rem;
 }
 
-.home-container {
+/* .home-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +24,22 @@ body{
     height: 100vh;
     background-image: url(/src/assets/image/backgroundHome.jpg);
     background-size: cover;
+} */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                      url(/src/assets/image/backgroundHome.jpg);
+    background-size: cover;
+    background-position: center;
 }
+
 
 .section-title{
     width: 50%;
