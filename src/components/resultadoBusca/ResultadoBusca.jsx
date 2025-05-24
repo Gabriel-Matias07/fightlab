@@ -16,7 +16,6 @@ const ResultadoBusca = () => {
           'x-rapidapi-host': 'v1.mma.api-sports.io',
           'x-rapidapi-key': '36fbea2dfe7f445271aa2be4e39976d6'
         }
-
         const res = await fetch(
           nome
             ? `https://v1.mma.api-sports.io/fighters?search=${nome}`
@@ -58,7 +57,7 @@ const ResultadoBusca = () => {
               />
               <div className="info-atleta">
                 <h2 className="nome-atleta">{atleta.name || 'NOME'}</h2>
-                <p>{atleta.nationality || 'Brasil'}</p>
+                <p>{atleta.nationality || 'Sem Informações de Nacionalidade'}</p>
                 <p>{atleta.category || 'Peso Médio'}</p>
                 <p>
                   {atleta.fights?.wins || 0}V - {atleta.fights?.loses || 0}D -{' '}

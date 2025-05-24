@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const Pesquisa = ({ onBuscar, onFechar }) => {
   const [input, setInput] = useState('')
-
+  
   const handleClick = () => {
     if (input.trim() !== '') {
       onBuscar(input.trim())
