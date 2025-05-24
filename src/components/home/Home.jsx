@@ -1,44 +1,30 @@
-import { useState } from 'react';
-import './Home.css';
-import Pesquisa from './Pesquisa';
-import ResultadoBusca from '../resultadoBusca/ResultadoBusca'; // Card basico de exibição
+// src/components/home/Home.jsx
+import { useState } from 'react'
+import Pesquisa from './Pesquisa'
+import './Home.css'
+import { useNavigate } from 'react-router-dom'
 
-function Home() {
-  const [modalAberto, setModalAberto] = useState(false);
-  const [atletas, setAtletas] = useState([]);
+const Home = () => {
+  const [modalAberto, setModalAberto] = useState(false)
+  const navigate = useNavigate()
 
-  const abrirModal = () => setModalAberto(true);
-  const fecharModal = () => setModalAberto(false);
+  const handleBusca = (nomeAtleta) => {
+    setModalAberto(false)
+    navigate(`/resultado?nome=${nomeAtleta}`)
+  }
 
   return (
     <div className="home-container">
-      <header className='header-logo'>
-        <h1 className='upperCase'>FightLab</h1>
-      </header>
-
-      <section className='section-title'>
-        <h1 className='titles'>Encontre Grandes Nomes do Box</h1>
-        <h2 className='upperCase'>
-          Histórico, estatísticas e curiosidades dos <br />
-          maiores boxeadores do mundo
-        </h2>
-      </section>
-
-      <span className='span-btn'>
-        <button onClick={abrirModal} className="btn">Pesquisar Atletas</button>
-        <button className="btn">Sobre Nós</button>
-      </span>
-
-      {modalAberto && (
-        <Pesquisa
-          onClose={fecharModal}
-          onResultados={setAtletas} // <- aqui passa os dados buscados pro Home
-        />
-      )}
-
-      <ResultadoBusca atletas={atletas} /> {/* <- aqui exibe os dados */}
+      <div className="section-title">
+        <h1 className="titles">Bem-vindo ao FightLab</h1>
+      </div>
+      <div className="span-btn">
+        <button className="btn" onClick={() => setModalAberto(true)}>Pesquisar Atletas</button>
+        <button className="btn" onClick={() => window.location.href = 'https://github.com/Gabriel-Matias07/fightlab'}>Sobre Nós</button>
+      </div>
+      {modalAberto && <Pesquisa onBuscar={handleBusca} onFechar={() => setModalAberto(false)} />}
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

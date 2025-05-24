@@ -1,56 +1,83 @@
-import './ResultadoBusca.css';
+import './ResultadoBusca.css'
+import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-function ResultadoBusca() {
-     const url = 'https://s2.glbimg.com/zm_sSdKEWems13p_-pgXoyO6c2g=/0x0:1877x1280/690x470/s.glbimg.com/es/ge/f/original/2015/01/04/img_3226.jpg';
-    return (
-        <div>
-            <div className="container">
-      <header>
-        <div className="logo">FIGHTLAB</div>
-      </header>
+const ResultadoBusca = () => {
+  const location = useLocation()
+  const [resultados, setResultados] = useState([])
+  const [carregando, setCarregando] = useState(true)
 
-      <main>
-        <h2 className="titulo">RESULTADO DA BUSCA</h2>
+  const nome = new URLSearchParams(location.search).get('nome')
 
+  useEffect(() => {
+    const buscar = async () => {
+      try {
+        const headers = {
+          'x-rapidapi-host': 'v1.mma.api-sports.io',
+          'x-rapidapi-key': '36fbea2dfe7f445271aa2be4e39976d6'
+        }
+
+        const res = await fetch(
+          nome
+            ? `https://v1.mma.api-sports.io/fighters?search=${nome}`
+            : `https://v1.mma.api-sports.io/fighters`,
+          { headers }
+        )
+
+        const data = await res.json()
+        setResultados(data.response || [])
+      } catch (err) {
+        console.error('Erro ao buscar:', err)
+      } finally {
+        setCarregando(false)
+      }
+    }
+
+    buscar()
+  }, [nome])
+
+  return (
+    <div className="container">
+      <h1 className="titulo">
+        RESULTADO DA BUSCA
+        <div className="linha-vermelha"></div>
+      </h1>
+
+      {carregando ? (
+        <p>Carregando...</p>
+      ) : resultados.length === 0 ? (
+        <p>Nenhum atleta encontrado.</p>
+      ) : (
         <div className="cards">
-          <div className="card">
-            <img src={url} alt="Lutador" />
-            <div className="info">
-              <p className="nome">NOME</p>
-              <p>Brasil</p>
-              <p>Peso Médio</p>
-              <p>26V - 3D - 1E</p>
-              <button>ver perfil</button>
+          {resultados.map((atleta) => (
+            <div className="card-atleta" key={atleta.id}>
+              <img
+                src={atleta.photo || 'https://via.placeholder.com/300x300'}
+                alt={atleta.name}
+                className="imagem-atleta"
+              />
+              <div className="info-atleta">
+                <h2 className="nome-atleta">{atleta.name || 'NOME'}</h2>
+                <p>{atleta.nationality || 'Brasil'}</p>
+                <p>{atleta.category || 'Peso Médio'}</p>
+                <p>
+                  {atleta.fights?.wins || 0}V - {atleta.fights?.loses || 0}D -{' '}
+                  {atleta.fights?.draws || 0}E
+                </p>
+                <button
+                  onClick={() =>
+                    window.location.href = `/atleta/${atleta.id}`
+                  }
+                >
+                  ver perfil
+                </button>
+              </div>
             </div>
-          </div>
-
-          <div className="card">
-            <img src={url} alt="Lutador" />
-            <div className="info">
-              <p className="nome">NOME</p>
-              <p>Brasil</p>
-              <p>Peso Médio</p>
-              <p>26V - 3D - 1E</p>
-              <button>ver perfil</button>
-            </div>
-          </div>
-
-
-          <div className="card">
-            <img src={url} alt="Lutador" />
-            <div className="info">
-              <p className="nome">NOME</p>
-              <p>Brasil</p>
-              <p>Peso Médio</p>
-              <p>26V - 3D - 1E</p>
-              <button>ver perfil</button>
-            </div>
-          </div>
+          ))}
         </div>
-      </main>
-    </div>                
-        </div>
-    );
-};
+      )}
+    </div>
+  )
+}
 
-export default ResultadoBusca;
+export default ResultadoBusca
