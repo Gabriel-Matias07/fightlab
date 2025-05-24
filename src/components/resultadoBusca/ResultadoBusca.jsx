@@ -1,0 +1,83 @@
+import './ResultadoBusca.css'
+import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
+const ResultadoBusca = () => {
+  const location = useLocation()
+  const [resultados, setResultados] = useState([])
+  const [carregando, setCarregando] = useState(true)
+
+  const nome = new URLSearchParams(location.search).get('nome')
+
+  useEffect(() => {
+    const buscar = async () => {
+      try {
+        const headers = {
+          'x-rapidapi-host': 'v1.mma.api-sports.io',
+          'x-rapidapi-key': '36fbea2dfe7f445271aa2be4e39976d6'
+        }
+
+        const res = await fetch(
+          nome
+            ? `https://v1.mma.api-sports.io/fighters?search=${nome}`
+            : `https://v1.mma.api-sports.io/fighters`,
+          { headers }
+        )
+
+        const data = await res.json()
+        setResultados(data.response || [])
+      } catch (err) {
+        console.error('Erro ao buscar:', err)
+      } finally {
+        setCarregando(false)
+      }
+    }
+
+    buscar()
+  }, [nome])
+
+  return (
+    <div className="container">
+      <h1 className="titulo">
+        RESULTADO DA BUSCA
+        <div className="linha-vermelha"></div>
+      </h1>
+
+      {carregando ? (
+        <p>Carregando...</p>
+      ) : resultados.length === 0 ? (
+        <p>Nenhum atleta encontrado.</p>
+      ) : (
+        <div className="cards">
+          {resultados.map((atleta) => (
+            <div className="card-atleta" key={atleta.id}>
+              <img
+                src={atleta.photo || 'https://via.placeholder.com/300x300'}
+                alt={atleta.name}
+                className="imagem-atleta"
+              />
+              <div className="info-atleta">
+                <h2 className="nome-atleta">{atleta.name || 'NOME'}</h2>
+                <p>{atleta.nationality || 'Brasil'}</p>
+                <p>{atleta.category || 'Peso Médio'}</p>
+                <p>
+                  {atleta.fights?.wins || 0}V - {atleta.fights?.loses || 0}D -{' '}
+                  {atleta.fights?.draws || 0}E
+                </p>
+                <button
+                  onClick={() =>
+                    window.location.href = `/atleta/${atleta.id}`
+                  }
+                >
+                  ver perfil
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default ResultadoBusca
