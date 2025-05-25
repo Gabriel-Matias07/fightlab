@@ -17,7 +17,7 @@ const CardAtleta = () => {
 
     const {id} = useParams()
 
-    const [lutador, setLutador] = useState(null)
+    /* const [lutador, setLutador] = useState(null) */
     const [carregando, setCarregando] = useState(true)
 
     useEffect(() => {
@@ -43,7 +43,7 @@ const CardAtleta = () => {
     }, [id])
 
    
-    /* const lutador = {
+    const lutador = {
         nome: "Amanda Nunes",
         nickname: "The Lioness",
         updated: "2024-12-01",
@@ -57,7 +57,7 @@ const CardAtleta = () => {
         height: "173 cm",
         team: "American Top Team"
     }
- */
+
     if (carregando) {
         return <p>Carregando dados do lutador...</p>
     }
