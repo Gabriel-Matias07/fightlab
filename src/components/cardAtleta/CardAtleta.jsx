@@ -1,5 +1,3 @@
-
-// src/components/cardAtleta/CardAtleta.jsx
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import './CardAtleta.css'
