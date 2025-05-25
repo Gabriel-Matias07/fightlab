@@ -3,10 +3,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* importante para facilitar o controle de tamanhos */
+    box-sizing: border-box; 
 }
 
 body {
+    padding: 0;
     margin: 0;
     background-color: #111;
     color: white;
@@ -14,16 +15,18 @@ body {
 
 .container {
     width: 100vw;
+    height: 100vh;
     margin: 0 auto;
     padding: 0;
 }
 
-header,
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    margin: 10px;
 }
 
 header {
@@ -31,8 +34,11 @@ header {
 }
 
 header .logo {
-    text-align: center;
-    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
     font-weight: bold;
 }
 
@@ -108,6 +114,8 @@ main {
     flex-wrap: wrap; /* permite quebrar linha */
     align-items: center;
     gap: 30px; /* espaçamento entre os cards (opcional) */
+
+    margin-bottom: 30px;
 }
 
 .infoPrincipal{
@@ -123,13 +131,20 @@ main {
 }
 
 .equipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     width: 90%;
     height: 25%;
+    margin-bottom: 0;
 }
 
 .cardEquipe{
-    padding: 30px;
+    padding: 20px;
     height: 80%;
+    width: 100%;
 
     background-color: #1C1C1C;
     border-left: 2px solid red;

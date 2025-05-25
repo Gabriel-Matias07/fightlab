@@ -17,7 +17,7 @@ const CardAtleta = () => {
 
     const {id} = useParams()
 
-    /* const [lutador, setLutador] = useState(null) */
+    const [lutador, setLutador] = useState(null)
     const [carregando, setCarregando] = useState(true)
 
     useEffect(() => {
@@ -41,22 +41,6 @@ const CardAtleta = () => {
     
         buscarLutador()
     }, [id])
-
-   
-    const lutador = {
-        nome: "Amanda Nunes",
-        nickname: "The Lioness",
-        updated: "2024-12-01",
-        photo: "https://ufc.usada.org/wp-content/uploads/amanda-nunes-ufc.jpg",
-        birth_date: "1988-05-30",
-        weight: "61 kg",
-        category: "Peso Galo",
-        gender: "Feminino",
-        reach: "175 cm",
-        base: "Boxe / Jiu-Jitsu",
-        height: "173 cm",
-        team: "American Top Team"
-    }
 
     if (carregando) {
         return <p>Carregando dados do lutador...</p>
