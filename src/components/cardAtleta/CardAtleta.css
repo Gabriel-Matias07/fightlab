@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #111;
+    color: white;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 10px;
+}
+
+header {
+    height: 10vh;
+}
+
+header .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+/* MAIN */
+main {
+    height: 90vh;
+    width: 100%;
+}
+
+.infoIniciais{
+    height: 30%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 30px;
+}
+
+/* Divisão da imagem e info */
+.imgLutador,
+.nomeLutador, 
+.favButton{
+    height: 100%;
+}
+
+/* Imagem */
+.imgLutador {
+    background-size: cover;
+    background-position: center;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Info */
+.nomeLutador {
+    font-size: 1.4rem;
+    width: 60%;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nomeLutador{
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.favButton{
+    width: 10%;
+    float: right;
+}
+
+.favButton img{
+    cursor: pointer;
+
+    height: 40%;
+    width: auto;
+}
+
+.infoPrincipais{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+
+    width: 90%;
+    height: 45%;
+
+    display: flex;
+    flex-wrap: wrap; /* permite quebrar linha */
+    align-items: center;
+    gap: 30px; /* espaçamento entre os cards (opcional) */
+
+    margin-bottom: 30px;
+}
+
+.infoPrincipal{
+    background-color: #1C1C1C;
+
+    height: auto;
+    flex: 1 0 calc(33.333% - 30px);
+
+    max-width: calc(33.333% - 30px);
+
+    padding: 20px;
+    border-left: 2px solid red;
+}
+
+.equipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    height: 25%;
+    margin-bottom: 0;
+}
+
+.cardEquipe{
+    padding: 20px;
+    height: 80%;
+    width: 100%;
+
+    background-color: #1C1C1C;
+    border-left: 2px solid red;
+}
+
+.cardEquipe h1{
+    color: red;
+}
