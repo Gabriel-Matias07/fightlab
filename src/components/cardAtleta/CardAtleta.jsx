@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import './CardAtleta.css'
-import marcaPaginas from '../../assets/image/marca-paginas.png';
 
 const CardAtleta = () => {
 
@@ -20,6 +19,7 @@ const CardAtleta = () => {
         }
 
         localStorage.setItem('favoritos', JSON.stringify(favoritosSalvos));
+        window.location.href = `/favoritos`;
     }
 
     const { id } = useParams()
