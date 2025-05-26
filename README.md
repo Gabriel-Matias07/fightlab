@@ -13,7 +13,11 @@
 
 - **React.js** – Framework JavaScript para construção da interface  
 - **HTML5** – Estruturação da página  
-- **CSS3** – Estilização e responsividade  
+- **CSS3** – Estilização e responsividade
+
+## Documentação Simples
+
+https://docs.google.com/document/d/1wtZyE7wX70WjIffwKBALeea42QToS3emt8Wa_u1d58I/edit?usp=sharing
 
 ## Como rodar o projeto localmente
 
