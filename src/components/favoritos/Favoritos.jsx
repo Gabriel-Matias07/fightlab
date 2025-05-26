@@ -1,56 +1,37 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Favoritos.css";
 
 const Favoritos = () => {
-  const favoritos = [
-    {
-      id: 1,
-      nome: "Nome",
-      pais: "Brasil",
-      categoria: "Peso Médio",
-      vitorias: 28,
-      derrotas: 3,
-      empates: 1,
-      imagem: "https://www.ufc.com.br/images/styles/athlete_bio_full_body/s3/2025-01/5/OLIVEIRA_CHARLES_L_11-16.png?itok=VutZvq6g"
-    },
-    {
-      id: 2,
-      nome: "Nome",
-      pais: "Brasil",
-      categoria: "Peso Médio",
-      vitorias: 28,
-      derrotas: 3,
-      empates: 1,
-      imagem: "https://www.ufc.com.br/images/styles/athlete_bio_full_body/s3/2025-01/5/OLIVEIRA_CHARLES_L_11-16.png?itok=VutZvq6g"
-    },
-    {
-      id: 3,
-      nome: "Nome",
-      pais: "Brasil",
-      categoria: "Peso Médio",
-      vitorias: 28,
-      derrotas: 3,
-      empates: 1,
-      imagem: "https://www.ufc.com.br/images/styles/athlete_bio_full_body/s3/2025-01/5/OLIVEIRA_CHARLES_L_11-16.png?itok=VutZvq6g"
-    }
-  ];
+  const [favoritos, setFavoritos] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const favoritosSalvos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    setFavoritos(favoritosSalvos);
+  }, []);
 
   return (
     <div className="container">
       <h1 className="titulo">ATLETAS FAVORITOS</h1>
       <div className="linha-vermelha"></div>
       <div className="cards">
-        {favoritos.map((atleta) => (
-          <div key={atleta.id} className="card-atleta">
-            <img src={atleta.imagem} alt={atleta.nome} className="imagem-atleta" />
-            <div className="info-atleta">
-              <div className="nome-atleta">{atleta.nome}</div>
-              <p>{atleta.pais}</p>
-              <p>{atleta.categoria}</p>
-              <p>{`${atleta.vitorias}V - ${atleta.derrotas}D - ${atleta.empates}E`}</p>
-              <button>ver perfil</button>
+        {favoritos.length > 0 ? (
+          favoritos.map((atleta) => (
+            <div key={atleta.id} className="card-atleta">
+              <img src={atleta.photo || 'https://jacksonwink.com/wp-content/uploads/2023/09/642f3a306a28fe28935d27cb_jackson-wink-mma-fighter-profile-image-placeholder-male-01-p-20001-scaled-scaled.webp'} alt={atleta.name} className="imagem-atleta" />
+              <div className="info-atleta">
+                <div className="nome-atleta">{atleta.name}</div>
+                <p>{atleta.country?.name || 'País desconhecido'}</p>
+                <p>{atleta.category || 'Categoria desconhecida'}</p>
+                <p>{${atleta.wins?.total || 0}V - ${atleta.losses?.total || 0}D - ${atleta.draws || 0}E}</p>
+                <button onClick={() => navigate(/atleta/${atleta.id})}>Ver perfil</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Nenhum atleta favorito encontrado.</p>
+        )}
       </div>
     </div>
   );
