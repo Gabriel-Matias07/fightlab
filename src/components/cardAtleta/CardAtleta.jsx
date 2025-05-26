@@ -42,8 +42,8 @@ const CardAtleta = () => {
             try {
                 const res = await fetch(`https://v1.mma.api-sports.io/fighters?id=${id}`, {
                     headers: {
-                        'x-rapidapi-host': 'v1.mma.api-sports.io',
-                        'x-rapidapi-key': '36fbea2dfe7f445271aa2be4e39976d6'
+                    'x-rapidapi-host': import.meta.env.VITE_API_HOST,
+                    'x-rapidapi-key': import.meta.env.VITE_API_KEY
                     }
                 })
 
