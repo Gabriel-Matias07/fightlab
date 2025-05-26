@@ -24,8 +24,8 @@ const Favoritos = () => {
                 <div className="nome-atleta">{atleta.name}</div>
                 <p>{atleta.country?.name || 'País desconhecido'}</p>
                 <p>{atleta.category || 'Categoria desconhecida'}</p>
-                <p>{${atleta.wins?.total || 0}V - ${atleta.losses?.total || 0}D - ${atleta.draws || 0}E}</p>
-                <button onClick={() => navigate(/atleta/${atleta.id})}>Ver perfil</button>
+                <p>{`${atleta.wins?.total || 0}V - ${atleta.losses?.total || 0}D - ${atleta.draws || 0}E`}</p>
+                <button onClick={() => navigate(`/atleta/${atleta.id}`)}>Ver perfil</button>
               </div>
             </div>
           ))
