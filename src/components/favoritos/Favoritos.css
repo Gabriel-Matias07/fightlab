@@ -8,6 +8,27 @@
   align-items: center;
 }
 
+.voltar-home {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.voltar-home:hover {
+  color: red;
+}
+
+.seta {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
 .titulo {
   font-size: 2rem;
   font-weight: bold;
