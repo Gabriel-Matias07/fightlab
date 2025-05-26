@@ -91,16 +91,8 @@ main {
     font-family: "Bebas Neue", sans-serif;
 }
 
-.favButton{
-    width: 10%;
-    float: right;
-}
-
-.favButton img{
-    cursor: pointer;
-
-    height: 40%;
-    width: auto;
+.favButton:hover{
+    scale: 1.1;
 }
 
 .infoPrincipais{

@@ -1,21 +1,40 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import './CardAtleta.css'
-import marcaPaginas from '../../assets/image/marca-paginas.png';
 
 const CardAtleta = () => {
 
     function adicionarFavorito(lutador) {
-        const favoritosSalvos = JSON.parse(localStorage.getItem('favoritos')) || []
-        const jaExiste = favoritosSalvos.find(f => f.id === lutador.id)
-        if (!jaExiste) {
-            favoritosSalvos.push(lutador)
-            localStorage.setItem('favoritos', JSON.stringify(favoritosSalvos))
+        const favoritosSalvos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        const index = favoritosSalvos.findIndex(f => f.id === lutador.id);
+    
+        if (index === -1) {
+            // Criar objeto simplificado
+            const lutadorFavorito = {
+                id: lutador.id,
+                name: lutador.name,
+                photo: lutador.photo,
+                category: lutador.category,
+                country: lutador.country?.name,
+                wins: { total: lutador.wins?.total || 0 },
+                losses: { total: lutador.losses?.total || 0 },
+                draws: lutador.draws || 0
+            };
+    
+            favoritosSalvos.push(lutadorFavorito);
+            setClicado(true);
+        } else {
+            favoritosSalvos.splice(index, 1);
+            setClicado(false);
         }
+    
+        localStorage.setItem('favoritos', JSON.stringify(favoritosSalvos));
+        window.location.href = '/favoritos';
     }
 
     const { id } = useParams()
     const [lutador, setLutador] = useState(null)
+    const [clicado, setClicado] = useState(false);
     const [carregando, setCarregando] = useState(true)
 
     useEffect(() => {
@@ -29,7 +48,13 @@ const CardAtleta = () => {
                 })
 
                 const data = await res.json()
-                setLutador(data.response[0])
+                const lutadorBuscado = data.response[0];
+                setLutador(lutadorBuscado)
+
+                const favoritosSalvos = JSON.parse(localStorage.getItem('favoritos')) || [];
+                const jaFavorito = favoritosSalvos.find(f => f.id === lutadorBuscado.id);
+                setClicado(!!jaFavorito);
+                console.log(JSON.parse(localStorage.getItem('favoritos')));
             } catch (error) {
                 console.error('Erro ao buscar lutador:', error)
             } finally {
@@ -43,6 +68,18 @@ const CardAtleta = () => {
     if (carregando) return <p>Carregando dados do lutador...</p>
     if (!lutador) return <p>Lutador não encontrado.</p>
 
+    //referente ao bookmark
+    const estiloFavButton = {
+        cursor: 'pointer',
+        width: '0',
+        height: '0',
+        borderLeft: `60px solid ${clicado ? 'red' : 'white'}`,
+        borderRight: `60px solid ${clicado ? 'red' : 'white'}`,
+        borderTop: `90px solid ${clicado ? 'red' : 'white'}`,
+        borderBottom: '36px solid transparent',
+        transition: 'all 0.2s ease-in-out'
+    };
+
     return (
         <div className="container">
             <header>
@@ -54,7 +91,7 @@ const CardAtleta = () => {
                     <div
                         className="imgLutador"
                         style={{
-                            backgroundImage: `url(${lutador.photo || 'https://via.placeholder.com/300'})`
+                            backgroundImage: `url(${lutador.photo || 'https://jacksonwink.com/wp-content/uploads/2023/09/642f3a306a28fe28935d27cb_jackson-wink-mma-fighter-profile-image-placeholder-male-01-p-20001-scaled-scaled.webp'})`
                         }}
                     ></div>
 
@@ -64,9 +101,11 @@ const CardAtleta = () => {
                         <h2>Última atualização: {lutador.last_update || 'Data desconhecida'}</h2>
                     </div>
 
-                    <div className="favButton" onClick={() => adicionarFavorito(lutador)}>
-                        <img src={marcaPaginas} alt="Favoritar" />
-                    </div>
+                    <div
+                        className="favButton"
+                        style={estiloFavButton}
+                        onClick={() => adicionarFavorito(lutador)}
+                    ></div>
                 </div>
 
                 <div className="infoPrincipais">
