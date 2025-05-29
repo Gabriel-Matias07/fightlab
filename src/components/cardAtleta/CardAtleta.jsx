@@ -16,9 +16,9 @@ const CardAtleta = () => {
                 photo: lutador.photo,
                 category: lutador.category,
                 country: lutador.country?.name,
-                wins: { total: lutador.wins?.total || 0 },
-                losses: { total: lutador.losses?.total || 0 },
-                draws: lutador.draws || 0
+                wins: record.total?.win || 0,
+                losses: record.total?.loss || 0,
+                draws: record.total?.draw || 0
             };
     
             favoritosSalvos.push(lutadorFavorito);
@@ -27,29 +27,37 @@ const CardAtleta = () => {
             favoritosSalvos.splice(index, 1);
             setClicado(false);
         }
-    
+        
+        console.log(record.total.win);
         localStorage.setItem('favoritos', JSON.stringify(favoritosSalvos));
         window.location.href = '/favoritos';
     }
 
     const { id } = useParams()
-    const [lutador, setLutador] = useState(null)
+    const [lutador, setLutador] = useState(null);
+    const [record, setRecord] = useState(null);
     const [clicado, setClicado] = useState(false);
     const [carregando, setCarregando] = useState(true)
 
     useEffect(() => {
         const buscarLutador = async () => {
             try {
-                const res = await fetch(`https://v1.mma.api-sports.io/fighters?id=${id}`, {
-                    headers: {
+                
+                const headers = {
                     'x-rapidapi-host': import.meta.env.VITE_API_HOST,
                     'x-rapidapi-key': import.meta.env.VITE_API_KEY
-                    }
-                })
+                }
 
-                const data = await res.json()
+                const res = await fetch(`https://v1.mma.api-sports.io/fighters?id=${id}`, { headers });
+                const data = await res.json();
                 const lutadorBuscado = data.response[0];
-                setLutador(lutadorBuscado)
+                setLutador(lutadorBuscado);
+
+                // Buscar records (vitórias, derrotas, empates)
+                const resRecord = await fetch(`https://v1.mma.api-sports.io/fighters/records?id=${id}`, { headers });
+                const dataRecord = await resRecord.json();
+                const recordInfo = dataRecord.response[0];
+                setRecord(recordInfo);
 
                 const favoritosSalvos = JSON.parse(localStorage.getItem('favoritos')) || [];
                 const jaFavorito = favoritosSalvos.find(f => f.id === lutadorBuscado.id);
