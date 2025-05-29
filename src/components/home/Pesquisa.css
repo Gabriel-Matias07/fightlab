@@ -78,19 +78,19 @@
     top: 25.5rem;
 }
 
-footer button{
-    font-size: 1.5rem;
-    width: 5rem;
+.button-pesquisa{
+    color: #FFFF;
+    width: 7rem;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid 1px #FFFF;
     outline: none;
     background-color: transparent;
     transition: transform 0.4s ease;
 }
 
-footer button:hover{
-    border-bottom: solid 1px red;
+.button-pesquisa:hover{
+    border-bottom: solid 2px red;
     transform: scale(1.1);
+    background-color: transparent;
 }
