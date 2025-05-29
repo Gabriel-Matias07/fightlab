@@ -26,8 +26,8 @@ const Pesquisa = ({ onBuscar, onFechar }) => {
         />
       </div>
       <div className="footer">
-        <button onClick={handleClick}>Buscar</button>
-        <button onClick={onFechar}>Cancelar</button>
+        <button className='button-pesquisa' onClick={handleClick}>Buscar</button>
+        <button className='button-pesquisa' onClick={onFechar}>Cancelar</button>
       </div>
     </div>
   )
