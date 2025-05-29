@@ -1,77 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-*{
-    padding: 0;
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  padding: 0;
+  margin: 0;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    font-family: "Bebas Neue", sans-serif;
+body {
+  display: flex;
+  justify-content: center;
+  font-family: "Bebas Neue", sans-serif;
 }
 
-.header-logo{
-    margin-top: -7rem;
+.header-logo {
+  margin-top: -7rem;
 }
-
-/* .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10rem;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(/src/assets/image/backgroundHome.jpg);
-    background-size: cover;
-} */
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10rem;
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                      url(/src/assets/image/backgroundHome.jpg);
-    background-size: cover;
-    background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/src/assets/image/backgroundHome.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-
-.section-title{
-    width: 50%;
+.section-title {
+  width: 50%;
 }
 
-.span-btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 40%;
+.span-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 40%;
 }
 
-.upperCase{
-    text-transform: uppercase;
+.upperCase {
+  text-transform: uppercase;
 }
 
-.titles{
-    text-transform: uppercase;
-    font-size: 5.6em;
-    line-height: 1.1;
+.titles {
+  text-transform: uppercase;
+  font-size: 5.6em;
+  line-height: 1.1;
 }
 
 .btn {
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    background-color: #FFFF;
-    width: 14rem;
-    height: 4.4rem;
-    transition: transform 0.4s ease;
-    border: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  background-color: #ffff;
+  width: 14rem;
+  height: 4.4rem;
+  transition: transform 0.4s ease;
+  border: none;
 }
 
-.btn:hover{
-    transform: scale(1.1);
+.btn:hover {
+  transform: scale(1.1);
 }
