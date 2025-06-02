@@ -59,10 +59,7 @@ const ResultadoBusca = () => {
                 <h2 className="nome-atleta">{atleta.name || 'NOME'}</h2>
                 <p>{atleta.nationality || 'Sem Informações de Nacionalidade'}</p>
                 <p>{atleta.category || 'Peso Médio'}</p>
-                <p>
-                  {atleta.fights?.wins || 0}V - {atleta.fights?.loses || 0}D -{' '}
-                  {atleta.fights?.draws || 0}E
-                </p>
+              
                 <button
                   onClick={() =>
                     window.location.href = `/atleta/${atleta.id}`
